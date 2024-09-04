@@ -34,7 +34,6 @@ const orderSchema = mongoose.Schema({
     delivery: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'delivery',
-        required: true
     }
 });
 

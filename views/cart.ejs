@@ -194,7 +194,7 @@
                 axios.post('/payment/create/orderId')
                     .then(function (response) {
                         var options = {
-                            "key": "rzp_test_cAa3gCF0eP8i4R", // Enter the Key ID generated from the Dashboard
+                            "key": "rzp_test_w3JIfB4D2D2jXi", // Enter the Key ID generated from the Dashboard
                             "amount": response.data.amount, // Amount in currency subunits. Default currency is INR.
                             "currency": response.data.currency,
                             "name": "foodFast",
@@ -208,6 +208,7 @@
                                     signature: response.razorpay_signature
                                 })
                                     .then(function (response) {
+                                        console.log("received");
                                         let { razorpayOrderId, razorpayPaymentId, signature } = JSON.parse(response.config.data)
                                         window.location.href = `/order/<%= userid %>/${razorpayOrderId}/${razorpayPaymentId}/${signature}`
                                     })

@@ -29,9 +29,9 @@
                         <div class="flex w-32 flex-shrink-0 flex-col items-center">
                             <div class="relative">
                                 <img src="data:image/jpg;base64, <%= elem.image.toString('base64') %>"
-                                    alt="<%= elem.name %>" class="h-24 rounded">
+                                    alt="<%= elem.name %>" class="h-24  rounded-lg">
                             </div>
-                            <p class="text-sm text-center mt-2">
+                            <p class="text-sm text-center mt-2 capitalize">
                                 <%= elem.name %>
                             </p>
                             <p class="text-xs text-gray-500 line-through">₹<%= Number(elem.price)+20 %>
@@ -77,17 +77,20 @@
 
             <!-- Grocery & Kitchen Section -->
             <% for(let key in products){ %>
-                <div class="bg-white p-4 rounded-lg shadow mb-10">
+                <div class="bg-white p-4 rounded-lg shadow mb-10 capitalize">
                     <h2 class="text-lg font-semibold">
                         <%= key %>
                     </h2>
                     <div class="grid grid-cols-4 gap-4 mt-4">
                         <% products[key].forEach(elem=>{ %>
-                            <div class="flex flex-col items-center">
+                            <div class="flex flex-col items-center capitalize mt-2">
                                 <img src="data:image/jpg;base64, <%= elem.image.toString('base64') %>"
-                                    alt="<%= elem.name %>" class="w-24 rounded">
-                                <p class="text-sm text-center mt-2">
+                                    alt="<%= elem.name %>" class="w-24 h-1/2 rounded object-contain">
+                                <p class="text-sm text-center mt-2 capitalize">
                                     <%= elem.name %>
+                                </p>
+                                <p class="text-sm text-center mt-2 capitalize">
+                                    ₹<%= elem.price %>
                                 </p>
                                 <a class="px-4 text-white text-xs rounded mt-2 inline-block py-1 bg-green-700"
                                     href="/cart/add/<%= elem._id %>">ADD</a>
@@ -113,7 +116,7 @@
                                     <%= cartCount %> Item
                                 </div>
                                 <a href="/cart"
-                                    class="flex items-center justify-center px-32 py-3 bg-green-700 text-white rounded-lg"><span
+                                    class="flex items-center justify-center px-12 py-3 bg-green-700 text-white rounded-lg"><span
                                         class="text-lg">Next</span><i class="text-2xl ri-arrow-right-s-fill"></i></a>
                             </div>
                         </div>
