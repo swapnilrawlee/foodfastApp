@@ -44,6 +44,8 @@ router.get('/add/:id', userIsLoggedIn, async function (req, res) {
     } else {
         cart.products.push(req.params.id);
         cart.totalPrice = Number(cart.totalPrice) + Number(product.price);
+        console.log(cart.totalPrice);
+        
         await cart.save();
     }
 
@@ -56,6 +58,7 @@ router.get('/remove/:id', userIsLoggedIn, async function (req, res) {
     if(!cart) {
         return res.status(404).send('Cart not found');
     }
+
     
     
     let productIndex = cart.products.indexOf(req.params.id);
